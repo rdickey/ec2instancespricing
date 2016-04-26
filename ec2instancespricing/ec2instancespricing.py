@@ -112,6 +112,9 @@ OUTPUT_FIELD_NAMES = [
     "type",
     "os",
     "price",
+    "vcpu",
+    "ecu",
+    "memory",
     "utilization",
     "term",
     "upfront/perGB"
@@ -274,12 +277,31 @@ EC2_REGIONS_API_TO_JSON_NAME = {
 
 INSTANCES_SPOT_INSTANCE_URL = "http://spot-price.s3.amazonaws.com/spot.js"
 
+# Previous gen on-demand
+INSTANCES_ON_DEMAND_LINUX_PREV_URL = "http://a0.awsstatic.com/pricing/1/ec2/previous-generation/linux-od.min.js"
+INSTANCES_ON_DEMAND_RHEL_PREV_URL = "http://a0.awsstatic.com/pricing/1/ec2/previous-generation/rhel-od.min.js"
+INSTANCES_ON_DEMAND_SLES_PREV_URL = "http://a0.awsstatic.com/pricing/1/ec2/previous-generation/sles-od.min.js"
+INSTANCES_ON_DEMAND_WINDOWS_PREV_URL = "http://a0.awsstatic.com/pricing/1/ec2/previous-generation/mswin-od.min.js"
+INSTANCES_ON_DEMAND_WINSQL_PREV_URL = "http://a0.awsstatic.com/pricing/1/ec2/previous-generation/mswinSQL-od.min.js"
+INSTANCES_ON_DEMAND_WINSQLWEB_PREV_URL = "http://a0.awsstatic.com/pricing/1/ec2/previous-generation/mswinSQLWeb-od.min.js"
+
+# Latest gen on-demand
 INSTANCES_ON_DEMAND_LINUX_URL = "http://a0.awsstatic.com/pricing/1/ec2/linux-od.min.js"
 INSTANCES_ON_DEMAND_RHEL_URL = "http://a0.awsstatic.com/pricing/1/ec2/rhel-od.min.js"
 INSTANCES_ON_DEMAND_SLES_URL = "http://a0.awsstatic.com/pricing/1/ec2/sles-od.min.js"
 INSTANCES_ON_DEMAND_WINDOWS_URL = "http://a0.awsstatic.com/pricing/1/ec2/mswin-od.min.js"
 INSTANCES_ON_DEMAND_WINSQL_URL = "http://a0.awsstatic.com/pricing/1/ec2/mswinSQL-od.min.js"
 INSTANCES_ON_DEMAND_WINSQLWEB_URL = "http://a0.awsstatic.com/pricing/1/ec2/mswinSQLWeb-od.min.js"
+
+# Previous gen reserved v2
+INSTANCES_RESERVED_V2_LINUX_PREV_URL = "http://a0.awsstatic.com/pricing/1/ec2/previous-generation/ri-v2/linux-unix-shared.min.js"
+INSTANCES_RESERVED_V2_RHEL_PREV_URL = "http://a0.awsstatic.com/pricing/1/ec2/previous-generation/ri-v2/red-hat-enterprise-linux-shared.min.js"
+INSTANCES_RESERVED_V2_SLES_PREV_URL = "http://a0.awsstatic.com/pricing/1/ec2/previous-generation/ri-v2/suse-linux-shared.min.js"
+INSTANCES_RESERVED_V2_WINDOWS_PREV_URL = "http://a0.awsstatic.com/pricing/1/ec2/previous-generation/ri-v2/windows-shared.min.js"
+INSTANCES_RESERVED_V2_WINSQL_PREV_URL = "http://a0.awsstatic.com/pricing/1/ec2/previous-generation/ri-v2/windows-with-sql-server-standard-shared.min.js"
+INSTANCES_RESERVED_V2_WINSQLWEB_PREV_URL = "http://a0.awsstatic.com/pricing/1/ec2/previous-generation/ri-v2/windows-with-sql-server-web-shared.min.js"
+
+# Latest gen reserved v1
 INSTANCES_RESERVED_LIGHT_UTILIZATION_LINUX_URL = "http://aws-assets-pricing-prod.s3.amazonaws.com/pricing/ec2/linux-ri-light.js"
 INSTANCES_RESERVED_LIGHT_UTILIZATION_RHEL_URL = "http://aws-assets-pricing-prod.s3.amazonaws.com/pricing/ec2/rhel-ri-light.js"
 INSTANCES_RESERVED_LIGHT_UTILIZATION_SLES_URL = "http://aws-assets-pricing-prod.s3.amazonaws.com/pricing/ec2/sles-ri-light.js"
@@ -298,17 +320,34 @@ INSTANCES_RESERVED_HEAVY_UTILIZATION_SLES_URL = "http://aws-assets-pricing-prod.
 INSTANCES_RESERVED_HEAVY_UTILIZATION_WINDOWS_URL = "http://aws-assets-pricing-prod.s3.amazonaws.com/pricing/ec2/mswin-ri-heavy.js"
 INSTANCES_RESERVED_HEAVY_UTILIZATION_WINSQL_URL = "http://aws-assets-pricing-prod.s3.amazonaws.com/pricing/ec2/mswinSQL-ri-heavy.js"
 INSTANCES_RESERVED_HEAVY_UTILIZATION_WINSQLWEB_URL = "http://aws-assets-pricing-prod.s3.amazonaws.com/pricing/ec2/mswinSQLWeb-ri-heavy.js"
+
+# Latest gen reserved v2
+INSTANCES_RESERVED_V2_LINUX_URL = "http://a0.awsstatic.com/pricing/1/ec2/ri-v2/linux-unix-shared.min.js"
+INSTANCES_RESERVED_V2_RHEL_URL = "http://a0.awsstatic.com/pricing/1/ec2/ri-v2/red-hat-enterprise-linux-shared.min.js"
+INSTANCES_RESERVED_V2_SLES_URL = "http://a0.awsstatic.com/pricing/1/ec2/ri-v2/suse-linux-shared.min.js"
+INSTANCES_RESERVED_V2_WINDOWS_URL = "http://a0.awsstatic.com/pricing/1/ec2/ri-v2/windows-shared.min.js"
+INSTANCES_RESERVED_V2_WINSQL_URL = "http://a0.awsstatic.com/pricing/1/ec2/ri-v2/windows-with-sql-server-standard-shared.min.js"
+INSTANCES_RESERVED_V2_WINSQLWEB_URL = "http://a0.awsstatic.com/pricing/1/ec2/ri-v2/windows-with-sql-server-web-shared.min.js"
+INSTANCES_RESERVED_V2_WINSQLENT_URL = "http://a0.awsstatic.com/pricing/1/ec2/ri-v2/windows-with-sql-server-enterprise-shared.min.js"
+
+
 INSTANCES_USED_BY_EMR_URL = "http://a0.awsstatic.com/pricing/1/emr/pricing-emr.min.js"
 
 INSTANCES_ELB_URL = "http://a0.awsstatic.com/pricing/1/ec2/pricing-elb.min.js"
 
 INSTANCES_ONDEMAND_OS_TYPE_BY_URL = {
     INSTANCES_ON_DEMAND_LINUX_URL: "linux",
+    INSTANCES_ON_DEMAND_LINUX_PREV_URL: "linux",
     INSTANCES_ON_DEMAND_RHEL_URL: "rhel",
+    INSTANCES_ON_DEMAND_RHEL_PREV_URL: "rhel",
     INSTANCES_ON_DEMAND_SLES_URL: "sles",
+    INSTANCES_ON_DEMAND_SLES_PREV_URL: "sles",
     INSTANCES_ON_DEMAND_WINDOWS_URL: "mswin",
+    INSTANCES_ON_DEMAND_WINDOWS_PREV_URL: "mswin",
     INSTANCES_ON_DEMAND_WINSQL_URL: "mswinSQL",
+    INSTANCES_ON_DEMAND_WINSQL_PREV_URL: "mswinSQL",
     INSTANCES_ON_DEMAND_WINSQLWEB_URL: "mswinSQLWeb",
+    INSTANCES_ON_DEMAND_WINSQLWEB_PREV_URL: "mswinSQLWeb",
 }
 
 INSTANCES_RESERVED_OS_TYPE_BY_URL = {
@@ -330,6 +369,18 @@ INSTANCES_RESERVED_OS_TYPE_BY_URL = {
     INSTANCES_RESERVED_HEAVY_UTILIZATION_WINDOWS_URL:  "mswin",
     INSTANCES_RESERVED_HEAVY_UTILIZATION_WINSQL_URL: "mswinSQL",
     INSTANCES_RESERVED_HEAVY_UTILIZATION_WINSQLWEB_URL: "mswinSQLWeb",
+    INSTANCES_RESERVED_V2_LINUX_URL: "linux",
+    INSTANCES_RESERVED_V2_RHEL_URL: "rhel",
+    INSTANCES_RESERVED_V2_SLES_URL: "sles",
+    INSTANCES_RESERVED_V2_WINDOWS_URL: "mswin",
+    INSTANCES_RESERVED_V2_WINSQL_URL: "mswinSQL",
+    INSTANCES_RESERVED_V2_WINSQLWEB_URL: "mswinSQLWeb",
+    INSTANCES_RESERVED_V2_LINUX_PREV_URL: "linux",
+    INSTANCES_RESERVED_V2_RHEL_PREV_URL: "rhel",
+    INSTANCES_RESERVED_V2_SLES_PREV_URL: "sles",
+    INSTANCES_RESERVED_V2_WINDOWS_PREV_URL: "mswin",
+    INSTANCES_RESERVED_V2_WINSQL_PREV_URL: "mswinSQL",
+    INSTANCES_RESERVED_V2_WINSQLWEB_PREV_URL: "mswinSQLWeb",
 }
 
 INSTANCES_RESERVED_UTILIZATION_TYPE_BY_URL = {
@@ -351,6 +402,18 @@ INSTANCES_RESERVED_UTILIZATION_TYPE_BY_URL = {
     INSTANCES_RESERVED_HEAVY_UTILIZATION_WINDOWS_URL: "heavy",
     INSTANCES_RESERVED_HEAVY_UTILIZATION_WINSQL_URL: "heavy",
     INSTANCES_RESERVED_HEAVY_UTILIZATION_WINSQLWEB_URL: "heavy",
+    INSTANCES_RESERVED_V2_LINUX_URL: "v2",
+    INSTANCES_RESERVED_V2_RHEL_URL: "v2",
+    INSTANCES_RESERVED_V2_SLES_URL: "v2",
+    INSTANCES_RESERVED_V2_WINDOWS_URL: "v2",
+    INSTANCES_RESERVED_V2_WINSQL_URL: "v2",
+    INSTANCES_RESERVED_V2_WINSQLWEB_URL: "v2",
+    INSTANCES_RESERVED_V2_LINUX_PREV_URL: "v2",
+    INSTANCES_RESERVED_V2_RHEL_PREV_URL: "v2",
+    INSTANCES_RESERVED_V2_SLES_PREV_URL: "v2",
+    INSTANCES_RESERVED_V2_WINDOWS_PREV_URL: "v2",
+    INSTANCES_RESERVED_V2_WINSQL_PREV_URL: "v2",
+    INSTANCES_RESERVED_V2_WINSQLWEB_PREV_URL: "v2",
 }
 
 DEFAULT_CURRENCY = "USD"
@@ -507,6 +570,9 @@ def get_ec2_instances_prices(urls, type, filter_region=None, filter_instance_typ
                 if "sizes" in it:
                     for s in it["sizes"]:
                         instance_size = s["size"]
+                        vcpu = s["vCPU"] if s.has_key("vCPU") else ""
+                        ecu = s["ECU"] if s.has_key("ECU") else ""
+                        memory = s["memoryGiB"] if s.has_key("memoryGiB") else ""
 
                         _type = instance_size
                         if _type == "cc1.8xlarge":
@@ -546,6 +612,9 @@ def get_ec2_instances_prices(urls, type, filter_region=None, filter_instance_typ
                                                 "upfront_perGB": none_as_string(0)
                                             }
                                         },
+                                        "vcpu": vcpu,
+                                        "ecu": ecu,
+                                        "memory": memory,
                                         "utilization": type
                                 })
                         if type == "reserved":
@@ -562,8 +631,11 @@ def get_ec2_instances_prices(urls, type, filter_region=None, filter_instance_typ
                             instance_types.append({
                                 "type": _type,
                                 "os": os_type,
-                                "utilization": utilization_type,
-                                "prices": prices
+                                "prices": prices,
+                                "vcpu": vcpu,
+                                "ecu": ecu,
+                                "memory": memory,
+                                "utilization": utilization_type
                             })
 
                         for price_data in s["valueColumns"]:
@@ -600,6 +672,9 @@ def get_ec2_instances_prices(urls, type, filter_region=None, filter_instance_typ
                                             "upfront_perGB": none_as_string(0)
                                         }
                                     },
+                                    "vcpu": vcpu,
+                                    "ecu": ecu,
+                                    "memory": memory,
                                     "utilization": type
                                 })
                 elif "values" in it:
@@ -620,6 +695,9 @@ def get_ec2_instances_prices(urls, type, filter_region=None, filter_instance_typ
                                 "upfront_perGB": float(GBProcessed["prices"][currency])
                             }
                         },
+                        "vcpu": "",
+                        "ecu": "",
+                        "memory": "",
                         "utilization": 'elb',
                     })
 
@@ -661,6 +739,18 @@ def get_ec2_reserved_instances_prices(filter_region=None, filter_instance_type=N
         INSTANCES_RESERVED_HEAVY_UTILIZATION_WINDOWS_URL,
         INSTANCES_RESERVED_HEAVY_UTILIZATION_WINSQL_URL,
         INSTANCES_RESERVED_HEAVY_UTILIZATION_WINSQLWEB_URL,
+        INSTANCES_RESERVED_V2_LINUX_URL,
+        INSTANCES_RESERVED_V2_RHEL_URL,
+        INSTANCES_RESERVED_V2_SLES_URL,
+        INSTANCES_RESERVED_V2_WINDOWS_URL,
+        INSTANCES_RESERVED_V2_WINSQL_URL,
+        INSTANCES_RESERVED_V2_WINSQLWEB_URL,
+        INSTANCES_RESERVED_V2_LINUX_PREV_URL,
+        INSTANCES_RESERVED_V2_RHEL_PREV_URL,
+        INSTANCES_RESERVED_V2_SLES_PREV_URL,
+        INSTANCES_RESERVED_V2_WINDOWS_PREV_URL,
+        INSTANCES_RESERVED_V2_WINSQL_PREV_URL,
+        INSTANCES_RESERVED_V2_WINSQLWEB_PREV_URL,
     ]
 
     result = get_ec2_instances_prices(urls, "reserved", filter_region, filter_instance_type, filter_instance_type_pattern, filter_os_type, use_cache, cache_class)
@@ -672,6 +762,12 @@ def get_ec2_ondemand_instances_prices(filter_region=None, filter_instance_type=N
     """ Get EC2 on-demand instances prices. Results can be filtered by region """
 
     urls = [
+        INSTANCES_ON_DEMAND_LINUX_PREV_URL,
+        INSTANCES_ON_DEMAND_RHEL_PREV_URL,
+        INSTANCES_ON_DEMAND_SLES_PREV_URL,
+        INSTANCES_ON_DEMAND_WINDOWS_PREV_URL,
+        INSTANCES_ON_DEMAND_WINSQL_PREV_URL,
+        INSTANCES_ON_DEMAND_WINSQLWEB_PREV_URL,
         INSTANCES_ON_DEMAND_LINUX_URL,
         INSTANCES_ON_DEMAND_RHEL_URL,
         INSTANCES_ON_DEMAND_SLES_URL,
@@ -824,19 +920,39 @@ if __name__ == "__main__":
                 x.align["upfront_perGB"] = "l"
         else:
             x = list()
-            line_format = "%s %s %s %s %s %s %s"
+            line_format = "%s %s %s %s %s %s %s %s %s %s"
             if args.format == "csv":
                 print(', '.join(OUTPUT_FIELD_NAMES))
-                line_format = "%s,%s,%s,%s,%s,%s,%s"
+                line_format = "%s,%s,%s,%s,%s,%s%s,%s,%s,%s"
 
         for r in data["regions"]:
             region_name = r["region"]
             for it in r["instanceTypes"]:
                 for term in it["prices"]:
                     if args.format == "csv" or args.format == "line":
-                        x.append(line_format % (region_name, it["type"], it["os"], none_as_string(it["prices"][term]["hourly"]), it["utilization"], term, none_as_string(it["prices"][term]["upfront_perGB"])))
+                        x.append(line_format % (
+                            region_name,
+                            it["type"],
+                            it["os"],
+                            none_as_string(it["prices"][term]["hourly"]),
+                            it["vcpu"],
+                            it["ecu"],
+                            it["memory"],
+                            it["utilization"],
+                            term,
+                            none_as_string(it["prices"][term]["upfront_perGB"])))
                     else:
-                        x.add_row([region_name, it["type"], it["os"], none_as_string(it["prices"][term]["hourly"]), it["utilization"], term, none_as_string(it["prices"][term]["upfront_perGB"])])
+                        x.add_row([
+                            region_name,
+                            it["type"],
+                            it["os"],
+                            none_as_string(it["prices"][term]["hourly"]),
+                            it["vcpu"],
+                            it["ecu"],
+                            it["memory"],
+                            it["utilization"],
+                            term,
+                            none_as_string(it["prices"][term]["upfront_perGB"])])
 
         if args.format == "csv" or args.format == "line":
             print("\n".join(x))
